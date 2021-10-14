@@ -44,5 +44,5 @@ npm install
 
 ### Run
 ```
-node server.js
+nodemon server.js
 ```
