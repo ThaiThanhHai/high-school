@@ -12,13 +12,16 @@ module.exports = app => {
   // Retrieve all published users
   router.get("/published", users.findAllPublished);
 
-  // Retrieve a single Tutorial with id
+  // Retrieve a single user with id
   router.get("/:id", users.findOne);
 
-  // Update a Tutorial with id
+  // Update a user with id
   router.put("/:id", users.update);
 
-  // Delete a Tutorial with id
+  // Change password a user with id
+  router.put("/:id/change-password", users.changePassword);
+
+  // Delete a user with id
   router.delete("/:id", users.delete);
 
   // Delete all users

@@ -172,27 +172,28 @@ exports.update = (req, res) => {
 // change password
 exports.changePassword = async (req, res) => {
   const id = req.params.id;
+  const username = req.body.username;
   const oldPassword = req.body.oldPassword;
   const newPassword = req.body.newPassword;
 
   // confirm old password
-  const currentUser = await User.findByPk(id)
+  const currentUser = await User.findOne({ where: { id: Number(id), username: username} })
     .catch(err => {
       res.status(500).send({
         message: "Error retrieving User with id=" + id
       });
     });
-  if (!bcrypt.compareSync(oldPassword, currentUser.password)) {
+  if (currentUser == null || !bcrypt.compareSync(oldPassword, currentUser.password)) {
     res.status(400).send({
-      message: "Password is not correct!!!"
+      message: "Username or Password is not correct!!!"
     });
     return;
   }
   
   // hash a new password
   const hash = bcrypt.hashSync(newPassword, saltRounds);
-  User.update({ passwors: hash }, {
-    where: { id: id }
+  User.update({ password: hash , updatedAt: new Date() }, {
+    where: { id: Number(id) }
   })
     .then(num => {
       if (num == 1) {
