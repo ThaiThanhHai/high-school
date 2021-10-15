@@ -8,17 +8,34 @@
         <md-table-cell md-label="Salary">{{ item.salary }}</md-table-cell>
       </md-table-row>
     </md-table>
+    <paginate
+        :page-count="20"
+        :click-handler="clickCallback"
+        :prev-text="'Prev'"
+        :next-text="'Next'"
+        :container-class="'pagination'">
+    </paginate>
   </div>
 </template>
 
 <script>
+import Paginate from 'vuejs-paginate';
+
 export default {
   name: "simple-table",
+  components: {
+    Paginate,
+  },
   props: {
     tableHeaderColor: {
       type: String,
       default: "",
     },
+  },
+  methods: {
+    clickCallback: function(pageNum) {
+      alert(pageNum);
+    }
   },
   data() {
     return {
@@ -65,3 +82,25 @@ export default {
   },
 };
 </script>
+<style lang="css">
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.pagination > li {
+    display: inline;
+}
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+</style>
