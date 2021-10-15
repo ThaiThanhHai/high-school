@@ -26,6 +26,5 @@ db.teachers = require("./teacher.model.js")(sequelize, Sequelize);
 db.news = require("./news.model.js")(sequelize, Sequelize);
 db.pages = require("./page.model.js")(sequelize, Sequelize);
 db.groups = require("./group.model.js")(sequelize, Sequelize);
-db.proGroups = require("./proGroup.model.js")(sequelize, Sequelize);
 
 module.exports = db;

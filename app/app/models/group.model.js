@@ -3,6 +3,9 @@ module.exports = (sequelize, Sequelize) => {
     groupName: {
       type: Sequelize.STRING
     },
+    type: {
+      type: Sequelize.STRING
+    },
     createdAt: {
       type: Sequelize.DATE
     },

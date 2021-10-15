@@ -26,8 +26,7 @@ exports.create = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Tutorial."
+        message: err.message || "Some error occurred while creating the Tutorial."
       });
     });
 };
@@ -35,7 +34,8 @@ exports.create = (req, res) => {
 // Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
   const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  var condition = title ? { title: {
+      [Op.like]: `%${title}%` } } : null;
 
   Tutorial.findAll({ where: condition })
     .then(data => {
@@ -43,8 +43,7 @@ exports.findAll = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving tutorials."
+        message: err.message || "Some error occurred while retrieving tutorials."
       });
     });
 };
@@ -69,8 +68,8 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   Tutorial.update(req.body, {
-    where: { id: id }
-  })
+      where: { id: id }
+    })
     .then(num => {
       if (num == 1) {
         res.send({
@@ -94,8 +93,8 @@ exports.delete = (req, res) => {
   const id = req.params.id;
 
   Tutorial.destroy({
-    where: { id: id }
-  })
+      where: { id: id }
+    })
     .then(num => {
       if (num == 1) {
         res.send({
@@ -117,16 +116,15 @@ exports.delete = (req, res) => {
 // Delete all Tutorials from the database.
 exports.deleteAll = (req, res) => {
   Tutorial.destroy({
-    where: {},
-    truncate: false
-  })
+      where: {},
+      truncate: false
+    })
     .then(nums => {
       res.send({ message: `${nums} Tutorials were deleted successfully!` });
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all tutorials."
+        message: err.message || "Some error occurred while removing all tutorials."
       });
     });
 };
@@ -139,8 +137,7 @@ exports.findAllPublished = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving tutorials."
+        message: err.message || "Some error occurred while retrieving tutorials."
       });
     });
 };

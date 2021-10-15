@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 // Create and Save a new User
-exports.create = async (req, res) => {
+exports.create = async(req, res) => {
   // Validate request
   if (!req.body.username || !req.body.password) {
     res.status(400).send({
@@ -15,8 +15,8 @@ exports.create = async (req, res) => {
     return;
   }
   // check is exist username
-  const countUsername = await User.count({ where: { username: req.body.username }});
-  if  (countUsername > 0) {
+  const countUsername = await User.count({ where: { username: req.body.username } });
+  if (countUsername > 0) {
     res.status(400).send({
       message: "username already exists!"
     });
@@ -33,7 +33,7 @@ exports.create = async (req, res) => {
     password: hash,
     roles: req.body.roles,
     category: req.body.category,
-    active: req.body.active,
+    active: true,
     createdBy: req.body.createdBy,
     createdAt: currentTime,
     updatedBy: null,
@@ -47,8 +47,12 @@ exports.create = async (req, res) => {
       // If category is teacher then create a teacher
       if ('teacher' == req.body.category) {
         const teacher = {
-          user_id : data.id,
-          createdBy: req.body.createdBy,
+          user_id: data.id,
+          username: req.body.username,
+          first_name: req.body.firstName ? req.body.firstName : null,
+          last_name: req.body.lastName ? req.body.lastName : null,
+          active: true,
+          createdBy: req.body.createdBy ? req.body.createdBy : null,
           createdAt: currentTime,
           updatedBy: null,
           updatedAt: null,
@@ -57,8 +61,7 @@ exports.create = async (req, res) => {
         Teacher.create(teacher)
           .catch(err => {
             res.status(500).send({
-              message:
-                err.message || "Some error occurred while creating the Teacher."
+              message: err.message || "Some error occurred while creating the Teacher."
             });
           });
       }
@@ -66,35 +69,42 @@ exports.create = async (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the User."
+        message: err.message || "Some error occurred while creating the User."
       });
     });
 };
 
 // Retrieve all Users from the database.
-exports.findAll = async (req, res) => {
-  const username = req.query.username;
-  const category = req.query.category;
-  const roles = req.query.roles;
-  const limit = req.query.limit;
-  const offset = req.query.offset;
+exports.findAll = async(req, res) => {
+  const username = req.query.username ? req.query.username : null;
+  const category = req.query.category ? req.query.category : null;
+  const roles = req.query.roles ? req.query.roles : null;
+  const limit = req.query.limit ? req.query.limit : null;
+  const offset = req.query.offset ? req.query.offset : 0;
 
+  // create search condition
   var condition = {};
   if (username) {
     Object.assign(condition, {
-      username: { [Op.like]: `%${username}%` }
-    })
+      username: {
+        [Op.like]: `%${username}%`
+      }
+    });
   }
   if (category) {
     Object.assign(condition, {
       category: category
-    })
+    });
   }
   if (roles) {
     Object.assign(condition, {
       roles: roles
-    })
+    });
+  }
+  if (active) {
+    Object.assign(condition, {
+      active: active
+    });
   }
   // get total
   const total = await User.count({ where: condition });
@@ -103,18 +113,18 @@ exports.findAll = async (req, res) => {
   if (limit) {
     Object.assign(pagination, {
       limit: Number(limit)
-    })
+    });
   }
   if (offset) {
     Object.assign(pagination, {
       offset: Number(offset)
-    })
+    });
   }
 
   await User.findAll(Object.assign({ where: condition }, pagination))
     .then(data => {
       const resData = {
-        users : data,
+        users: data,
         limit: limit,
         offset: offset,
         total: total,
@@ -123,8 +133,7 @@ exports.findAll = async (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving Users."
+        message: err.message || "Some error occurred while retrieving Users."
       });
     });
 };
@@ -133,7 +142,7 @@ exports.findAll = async (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  User.findByPk(id)
+  User.findByPk(Number(id))
     .then(data => {
       res.send(data);
     })
@@ -149,8 +158,8 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   User.update(req.body, {
-    where: { id: id }
-  })
+      where: { id: Number(id) }
+    })
     .then(num => {
       if (num == 1) {
         res.send({
@@ -170,14 +179,14 @@ exports.update = (req, res) => {
 };
 
 // change password
-exports.changePassword = async (req, res) => {
+exports.changePassword = async(req, res) => {
   const id = req.params.id;
   const username = req.body.username;
   const oldPassword = req.body.oldPassword;
   const newPassword = req.body.newPassword;
 
   // confirm old password
-  const currentUser = await User.findOne({ where: { id: Number(id), username: username} })
+  const currentUser = await User.findOne({ where: { id: Number(id), username: username } })
     .catch(err => {
       res.status(500).send({
         message: "Error retrieving User with id=" + id
@@ -189,12 +198,12 @@ exports.changePassword = async (req, res) => {
     });
     return;
   }
-  
+
   // hash a new password
   const hash = bcrypt.hashSync(newPassword, saltRounds);
-  User.update({ password: hash , updatedAt: new Date() }, {
-    where: { id: Number(id) }
-  })
+  User.update({ password: hash, updatedAt: new Date() }, {
+      where: { id: Number(id) }
+    })
     .then(num => {
       if (num == 1) {
         res.send({
@@ -218,8 +227,8 @@ exports.delete = (req, res) => {
   const id = req.params.id;
 
   User.destroy({
-    where: { id: id }
-  })
+      where: { id: Number(id) }
+    })
     .then(num => {
       if (num == 1) {
         res.send({
@@ -241,16 +250,15 @@ exports.delete = (req, res) => {
 // Delete all Users from the database.
 exports.deleteAll = (req, res) => {
   User.destroy({
-    where: {},
-    truncate: false
-  })
+      where: {},
+      truncate: false
+    })
     .then(nums => {
       res.send({ message: `${nums} Users were deleted successfully!` });
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all Users."
+        message: err.message || "Some error occurred while removing all Users."
       });
     });
 };
@@ -263,8 +271,7 @@ exports.findAllPublished = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving Users."
+        message: err.message || "Some error occurred while retrieving Users."
       });
     });
 };

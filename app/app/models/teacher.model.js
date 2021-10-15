@@ -1,7 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
   const Teacher = sequelize.define("teacher", {
-    title: {
-      userId: Sequelize.INTEGER
+    userId: {
+      type: Sequelize.INTEGER
+    },
+    username: {
+      type: Sequelize.STRING
     },
     image: {
       type: Sequelize.STRING
