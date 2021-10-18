@@ -1,17 +1,47 @@
 <template>
-  <md-card>
+  <md-card
+    @mouseleave.native="onMouseLeave"
+    :data-count="hoverCount"
+    class="md-card-chart"
+  >
     <md-card-header
-      class="card-chart"
-      :data-background-color="dataBackgroundColor"
+      @mouseenter.native="onMouseOver"
+      :data-header-animation="headerAnimation"
+      :class="[
+        { hovered: imgHovered },
+        { hinge: headerDown },
+        { fadeInDown: fixedHeader },
+        { animated: true },
+        { [getClass(backgroundColor)]: true },
+        { 'md-card-header-text': HeaderText },
+        { 'md-card-header-icon': HeaderIcon },
+      ]"
     >
-      <div :id="chartId" class="ct-chart"></div>
+      <div v-if="chartInsideHeader" :id="chartId" class="ct-chart"></div>
+      <slot name="chartInsideHeader"></slot>
     </md-card-header>
 
     <md-card-content>
+      <div v-if="chartInsideContent" :id="chartId" class="ct-chart"></div>
+      <div
+        class="md-card-action-buttons text-center"
+        v-if="headerAnimation === 'true'"
+      >
+        <md-button
+          class="md-danger md-simple fix-broken-card"
+          @click="fixHeader"
+          v-if="headerDown"
+        >
+          <slot name="fixed-button"></slot> Fix Header!
+        </md-button>
+        <slot name="first-button"></slot>
+        <slot name="second-button"></slot>
+        <slot name="third-button"></slot>
+      </div>
       <slot name="content"></slot>
     </md-card-content>
 
-    <md-card-actions md-alignment="left">
+    <md-card-actions md-alignment="left" v-if="!noFooter">
       <slot name="footer"></slot>
     </md-card-actions>
   </md-card>
@@ -20,17 +50,18 @@
 export default {
   name: "chart-card",
   props: {
-    footerText: {
-      type: String,
-      default: "",
-    },
-    headerTitle: {
-      type: String,
-      default: "Chart title",
-    },
+    HeaderText: Boolean,
+    HeaderIcon: Boolean,
+    noFooter: Boolean,
+    chartInsideContent: Boolean,
+    chartInsideHeader: Boolean,
     chartType: {
       type: String,
       default: "Line", // Line | Pie | Bar
+    },
+    headerAnimation: {
+      type: String,
+      default: "true",
     },
     chartOptions: {
       type: Object,
@@ -39,6 +70,12 @@ export default {
       },
     },
     chartResponsiveOptions: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+    chartAnimation: {
       type: Array,
       default: () => {
         return [];
@@ -53,23 +90,60 @@ export default {
         };
       },
     },
-    dataBackgroundColor: {
+    backgroundColor: {
       type: String,
       default: "",
     },
   },
   data() {
     return {
+      hoverCount: 0,
+      imgHovered: false,
+      fixedHeader: false,
       chartId: "no-id",
     };
   },
+  computed: {
+    headerDown() {
+      return this.hoverCount > 15;
+    },
+  },
   methods: {
+    headerBack: function () {
+      this.fixedHeader = false;
+    },
+    fixHeader: function () {
+      this.hoverCount = 0;
+      this.fixedHeader = true;
+
+      setTimeout(this.headerBack, 480);
+    },
+    onMouseOver: function () {
+      if (this.headerAnimation === "true") {
+        this.imgHovered = true;
+        this.hoverCount++;
+      }
+    },
+    onMouseLeave: function () {
+      if (this.headerAnimation === "true") {
+        this.imgHovered = false;
+      }
+    },
+
+    getClass: function (backgroundColor) {
+      return "md-card-header-" + backgroundColor + "";
+    },
     /***
      * Initializes the chart by merging the chart options sent via props and the default chart options
      */
     initChart(Chartist) {
       var chartIdQuery = `#${this.chartId}`;
-      Chartist[this.chartType](chartIdQuery, this.chartData, this.chartOptions);
+      Chartist[this.chartType](
+        chartIdQuery,
+        this.chartData,
+        this.chartOptions,
+        this.chartAnimation
+      );
     },
     /***
      * Assigns a random id to the chart

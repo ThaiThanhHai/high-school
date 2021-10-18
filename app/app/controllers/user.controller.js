@@ -275,3 +275,34 @@ exports.findAllPublished = (req, res) => {
       });
     });
 };
+
+// User login
+exports.login = async(req, res) => {
+  // Validate request
+  if (!req.body.username || !req.body.password) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+    return;
+  }
+
+  const username = req.body.username;
+  const password = req.body.password;
+
+  // check user
+  const currentUser = await User.findOne({ where: { active: true, username: username } })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving User with id=" + id
+      });
+    });
+  if (currentUser == null || !bcrypt.compareSync(password, currentUser.password)) {
+    res.status(400).send({
+      message: "Username or Password is not correct!!!"
+    });
+    return;
+  }
+  res.send({
+    message: "Login successfully!"
+  });
+};

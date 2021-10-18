@@ -1,10 +1,8 @@
-@use 'sass:math';
-
 .md-button{
     border: none;
     border-radius: $border-radius-base;
     position: relative;
-    margin: 10px 1px;
+    margin: .3125rem 1px;
     height: auto;
     line-height: 1.42857;
 
@@ -12,6 +10,8 @@
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0;
+
+    @include social-buttons();
 
     will-change: box-shadow, transform;
     transition: box-shadow 0.2s $mdb-animation-curve-fast-out-linear-in,
@@ -38,11 +38,15 @@
       display: none;
     }
 
-    &.md-block{
-      width: 100%;
+    i{
+      width: 24px;
+      min-width: 24px;
     }
 
-    @include social-buttons();
+    &.md-white {
+      @include btn-styles($white-color);
+      box-shadow: none;
+    }
 
     &,
     &.md-default{
@@ -64,18 +68,8 @@
     &.md-danger{
       @include btn-styles($brand-danger);
     }
-    &.md-white{
-        &,
-        &:focus,
-        &:hover{
-            background-color: $white-color;
-            color: $gray-light;
-        }
-        &.btn-simple{
-            color: #FFFFFF;
-            background: transparent;
-            box-shadow: none;
-        }
+    &.md-rose{
+      @include btn-styles($brand-rose);
     }
 
     &:focus,
@@ -84,7 +78,9 @@
       outline: 0;
     }
 
-    &.md-round{
+    &.md-round,
+    &.md-round.md-fab,
+    &.md-round.md-just-icon{
       border-radius: $border-radius-extreme;
     }
 
@@ -93,7 +89,7 @@
           font-size: 18px;
           margin-top: -2px;
           position: relative;
-          top: 2px;
+          top: 0;
       }
     }
 
@@ -122,8 +118,8 @@
             width: $mdb-btn-fab-size-mini;
 
             &.material-icons {
-                top: math.div(($mdb-btn-icon-size-mini - $mdb-btn-fab-font-size), 2);
-                left: math.div(($mdb-btn-icon-size-mini - $mdb-btn-fab-font-size), 2);
+                top: ($mdb-btn-icon-size-mini - $mdb-btn-fab-font-size) / 2;
+                left: ($mdb-btn-icon-size-mini - $mdb-btn-fab-font-size) / 2;
             }
 
             .material-icons{
@@ -135,7 +131,7 @@
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-(math.div($mdb-btn-fab-font-size, 2)), -(math.div($mdb-btn-fab-font-size, 2)));
+          transform: translate(-($mdb-btn-fab-font-size / 2), -($mdb-btn-fab-font-size / 2));
           line-height: $mdb-btn-fab-font-size;
           width: $mdb-btn-fab-font-size;
           font-size: $mdb-btn-fab-font-size;
@@ -176,13 +172,6 @@
       overflow: hidden;
       position: relative;
       line-height: 41px;
-      border-radius: 50%;
-      text-align: center;
-
-      .fab{
-        font-size: 20px;
-
-      }
     }
 
     .md-button-content{
@@ -233,4 +222,32 @@
             color: $gray;
         }
     }
+}
+
+.button-container{
+  display: flex;
+  align-items: center;
+}
+
+.md-group>.md-group:not(:last-child)>.md-button, .md-group>.md-button:not(:last-child):not(.dropdown-toggle){
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.md-group>.md-group:not(:first-child)>.md-button,
+.md-group>.md-button:not(:first-child){
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.md-group{
+  display: inline-flex;
+  vertical-align: middle;
+
+  .md-button{
+    min-width: auto !important;
+    width: auto !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }

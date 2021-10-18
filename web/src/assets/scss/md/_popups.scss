@@ -7,8 +7,9 @@
   border-radius: $border-radius-base;
   background-color: $white-color !important;
   color: $gray !important;
-  font-size: 12px;
+  font-size: $tooltip-font-size;
   font-weight: 400;
+  white-space: normal;
   @include shadow-8dp();
 
   &:after{

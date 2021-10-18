@@ -1,17 +1,25 @@
-# [Vue Material Dashboard](https://demos.creative-tim.com/vue-material-dashboard) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/home?status=Vue%20Material%20Dashboard,%20a%20free%20Material%20Admin%20Template%20%E2%9D%A4%EF%B8%8F%20https%3A//bit.ly/2Nh5aVy%20%20%23vue%20%23material%20%23design%20%23developers%20%23freebie%20%20via%20%40CreativeTim)
+# [Vue Material Dashboard PRO](https://demos.creative-tim.com/vue-material-dashboard-pro) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/home?status=Vue%20Material%20Dashboard%20PRO%20by%20Creative%20Tim%20https%3A//demos.creative-tim.com/vue-material-dashboard-pro%20via%20%40CreativeTim)
 
 
- ![version](https://img.shields.io/badge/version-1.5.0-blue.svg)  ![license](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/vue-material-dashboard.svg?maxAge=2592000)](https://github.com/creativetimofficial/vue-material-dashboard/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/vue-material-dashboard.svg?maxAge=2592000)](https://github.com/creativetimofficial/vue-material-dashboard/issues?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim-general/Lobby) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
+![version](https://img.shields.io/badge/version-1.4.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/ct-vue-material-dashboard-pro.svg)](https://github.com/creativetimofficial/ct-vue-material-dashboard-pro/issues?q=is%3Aopen+is%3Aissue) [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/creativetimofficial/ct-vue-material-dashboard-pro.svg?maxAge=259200)](https://github.com/creativetimofficial/ct-vue-material-dashboard-pro/issues?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim/material-dashboard) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
 
+![Product Gif](https://s3.amazonaws.com/creativetim_bucket/github/gif/vue-material-dashboard-pro.gif)
 
-![Product Gif](https://s3.amazonaws.com/creativetim_bucket/github/gif/vue-material-dashboard.gif)
+Vue Material Dashboard PRO is a beautiful resource built over [Vue Material](https://vuematerial.io/) and [Vuejs](https://vuejs.org/v2/guide/). It will help you get started developing dashboards in no time. Vue Material Dashboard PRO is the official Vuejs version of the Original [Material Dashboard](https://www.creative-tim.com/product/material-dashboard). Using the Dashboard is pretty simple but requires basic knowledge of Javascript, [Vuejs](https://vuejs.org/v2/guide/) and [Vue Router](https://router.vuejs.org/en/).
 
-Vue Material Dashboard is a beautiful resource built over [Vue Material](https://vuematerial.io/) and [Vuejs](https://vuejs.org/v2/guide/). It will help you get started developing dashboards in no time. Vue Material Dashboard is the official Vuejs version of the Original Material Dashboard. Using the Dashboard is pretty simple but requires basic knowledge of Javascript, [Vuejs](https://vuejs.org/v2/guide/) and [Vue Router](https://router.vuejs.org/en/).
-
-We have created it thinking about things you actually need in a dashboard. Vue Material Dashboard contains handpicked and optimised Vuejs plugins. Everything is designed to fit with one another. As you will be able to see, the dashboard you can access on Creative Tim is a customisation of this product.
+We have created it thinking about things you actually need in a dashboard. Vue Material Dashboard PRO contains handpicked and optimised Vuejs plugins. Everything is designed to fit with one another. As you will be able to see, the dashboard you can access on Creative Tim is a customisation of this product.
 
 Let us know what you think and what we can improve below. And good luck with development!
 
+
+#### Special thanks
+During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
+- [Chartist](https://gionkunz.github.io/chartist-js/) for the wonderful charts
+- [Tristan Edwards](https://twitter.com/t4t5) for the [Sweet Alert2](https://sweetalert2.github.io/)
+- Kirill Lebedev for [jVector Maps](http://jvectormap.com/)
+
+
+Let us know your thoughts below. And good luck with development!
 
 ## Table of Contents
 
@@ -28,119 +36,176 @@ Let us know what you think and what we can improve below. And good luck with dev
 * [Useful Links](#useful-links)
 
 
-
 ## Versions
 
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/material-kit)[<img src="https://s3.amazonaws.com/creativetim_bucket/github/react.svg" width="60" height="60" />](https://www.creative-tim.com/product/material-kit-react)
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/vuejs.png" width="60" height="60" />](https://www.creative-tim.com/product/vue-material-dashboard)
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-angular2)
+[<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-pro)
+[<img src="https://s3.amazonaws.com/creativetim_bucket/github/react.svg" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-pro-react)
+[<img src="https://s3.amazonaws.com/creativetim_bucket/github/vuejs.png" width="60" height="60" />](https://www.creative-tim.com/product/vue-material-dashboard-pro)
+[<img src="https://s3.amazonaws.com/creativetim_bucket/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-pro-angular2)
 
 
-| HTML | React  |
-| --- | ---  |
-| [![Material Dashboard  HTML](https://s3.amazonaws.com/creativetim_bucket/products/50/thumb/opt_md_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard)  | [![Material Dashboard  React](https://s3.amazonaws.com/creativetim_bucket/products/71/thumb/opt_mdr_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-react)
-
-| Vue | Angular  |
-| --- | ---  |
-| [![Vue Material Dashboard](https://s3.amazonaws.com/creativetim_bucket/products/81/thumb/opt_md_vue_thumbnail.jpg)](https://www.creative-tim.com/product/vue-material-dashboard) | [![Material Dashboard Angular 2](https://s3.amazonaws.com/creativetim_bucket/products/53/thumb/opt_md_angular_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-angular2)
-
-
+| Vue | React | Angular | HTML |
+| --- | --- | --- | --- |
+| [![Vue Material Dashboard Pro HTML](https://s3.amazonaws.com/creativetim_bucket/products/87/thumb/opt_mdp_vue_thumbnail.jpg)](https://www.creative-tim.com/product/vue-material-dashboard-pro) | [![Material Dashboard Pro React](https://s3.amazonaws.com/creativetim_bucket/products/80/thumb/opt_mdp_react_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-pro-react)  | [![Material Dashboard Pro Angular](https://s3.amazonaws.com/creativetim_bucket/products/55/thumb/opt_mdp_angular_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-pro-angular2) | [![Material Dashboard Pro HTML](https://s3.amazonaws.com/creativetim_bucket/products/51/thumb/opt_mdp_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-pro)
 
 ## Demo
 
-| Dashboard | User Profile | Tables | Maps | Notification |
-| --- | --- | --- | --- | --- |
-| [![Start page](src/assets/github/dashboard.png)](https://demos.creative-tim.com/vue-material-dashboard) | [![User profile page](src/assets/github/user_profile.png)](https://demos.creative-tim.com/vue-material-dashboard/#/user) | [![Tables page ](src/assets/github/tables.png)](https://demos.creative-tim.com/vue-material-dashboard/#/table) | [![Maps Page](src/assets/github/maps.png)](https://demos.creative-tim.com/vue-material-dashboard/#/maps) | [![Notification page](src/assets/github/notification.png)](https://demos.creative-tim.com/vue-material-dashboard/#/notifications)
+- [Start page](https://demos.creative-tim.com/vue-material-dashboard-pro)
+- [Widgets page](https://demos.creative-tim.com/vue-material-dashboard-pro/#/widgets)
+- [Tables page ](https://demos.creative-tim.com/vue-material-dashboard-pro/#/table-list/extended)
+- [Maps Page](https://demos.creative-tim.com/vue-material-dashboard-pro/#/maps/google)
+- [Notifications page](https://demos.creative-tim.com/vue-material-dashboard-pro/#/components/notifications)
+- [Charts page](https://demos.creative-tim.com/vue-material-dashboard-pro/#/charts)
 
-[View More](https://demos.creative-tim.com/vue-material-dashboard).
+[View More](https://demos.creative-tim.com/vue-material-dashboard-pro).
 
 
 ## Quick start
 
-## :cloud: Build Setup
+Quick start options:
 
-### install dependencies
-`npm install`
-### serve with hot reload at localhost:8080
-`npm run dev`
-### build for production with minification
-`npm run build`
-
-- [Download from Github](https://github.com/creativetimofficial/vue-material-dashboard/archive/master.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/vue-material-dashboard).
-- Clone the repo: `git clone https://github.com/creativetimofficial/vue-material-dashboard.git`.
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+- Buy from [Creative Tim](https://www.creative-tim.com/product/vue-material-dashboard-pro)
 
 
 ## Documentation
-The documentation for the Vue Material Dashboard is hosted at our [website](https://demos.creative-tim.com/vue-material-dashboard/documentation).
+The documentation for the Material Dashboard Pro is hosted at our [website](https://demos.creative-tim.com/vue-material-dashboard-pro/documentation).
 
 
 ## File Structure
+
 Within the download you'll find the following directories and files:
 
 ```
-vue-material-dashboard
+vue-material-dashboard-pro/
+├── CHANGELOG.md
 ├── README.md
 ├── babel.config.js
 ├── package.json
 ├── postcss.config.js
 ├── public
+│   ├── img
 │   └── index.html
-└── src
-    ├── App.vue
-    ├── assets
-    │   ├── img
-    │   └── scss
-    │       ├── material-dashboard.scss
-    │       └── md
-    ├── components
-    │   ├── Cards
-    │   │   ├── ChartCard.vue
-    │   │   ├── NavTabsCard.vue
-    │   │   └── StatsCard.vue
-    │   ├── Dropdown.vue
-    │   ├── NotificationPlugin
-    │   │   ├── Notification.vue
-    │   │   ├── Notifications.vue
-    │   │   └── index.js
-    │   ├── SidebarPlugin
-    │   │   ├── SideBar.vue
-    │   │   ├── SidebarLink.vue
-    │   │   └── index.js
-    │   ├── Tables
-    │   │   ├── NavTabsTable.vue
-    │   │   ├── OrderedTable.vue
-    │   │   └── SimpleTable.vue
-    │   └── index.js
-    ├── globalComponents.js
-    ├── globalDirectives.js
-    ├── main.js
-    ├── material-dashboard.js
-    ├── pages
-    │   ├── Dashboard.vue
-    │   ├── Icons.vue
-    │   ├── Layout
-    │   │   ├── Content.vue
-    │   │   ├── ContentFooter.vue
-    │   │   ├── DashboardLayout.vue
-    │   │   ├── MobileMenu.vue
-    │   │   └── TopNavbar.vue
-    │   ├── Maps.vue
-    │   ├── Notifications.vue
-    │   ├── TableList.vue
-    │   ├── Typography.vue
-    │   ├── UpgradeToPRO.vue
-    │   ├── UserProfile
-    │   │   ├── EditProfileForm.vue
-    │   │   └── UserCard.vue
-    │   ├── UserProfile.vue
-    │   └── index.js
-    └── routes
-        └── routes.js
-```
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   ├── css
+│   │   └── scss
+│   │       ├── material-dashboard.scss
+│   │       └── md
+│   ├── components
+│   │   ├── AnimatedNumber.vue
+│   │   ├── Badge.vue
+│   │   ├── Cards
+│   │   │   ├── ChartCard.vue
+│   │   │   ├── GlobalSalesCard.vue
+│   │   │   ├── LockCard.vue
+│   │   │   ├── LoginCard.vue
+│   │   │   ├── NavTabsCard.vue
+│   │   │   ├── PricingCard.vue
+│   │   │   ├── ProductCard.vue
+│   │   │   ├── SignupCard.vue
+│   │   │   ├── StatsCard.vue
+│   │   │   └── TestimonialCard.vue
+│   │   ├── Collapse.vue
+│   │   ├── Dropdown.vue
+│   │   ├── Inputs
+│   │   │   └── IconCheckbox.vue
+│   │   ├── Modal.vue
+│   │   ├── NotificationPlugin
+│   │   │   ├── Notification.vue
+│   │   │   ├── Notifications.vue
+│   │   │   └── index.js
+│   │   ├── Pagination.vue
+│   │   ├── SidebarPlugin
+│   │   │   ├── SideBar.vue
+│   │   │   ├── SidebarItem.vue
+│   │   │   └── index.js
+│   │   ├── Slider.vue
+│   │   ├── Tables
+│   │   │   └── GlobalSalesTable.vue
+│   │   ├── Tabs.vue
+│   │   ├── Timeline
+│   │   │   ├── TimeLine.vue
+│   │   │   └── TimeLineItem.vue
+│   │   ├── Wizard
+│   │   │   ├── Wizard.vue
+│   │   │   ├── WizardTab.vue
+│   │   │   └── throttle.js
+│   │   ├── WorldMap
+│   │   │   ├── AsyncWorldMap.vue
+│   │   │   ├── WorldMap.vue
+│   │   │   └── world_map.js
+│   │   └── index.js
+│   ├── globalComponents.js
+│   ├── globalDirectives.js
+│   ├── main.js
+│   ├── material-dashboard.js
+│   ├── pages
+│   │   ├── Dashboard
+│   │   │   ├── Calendar.vue
+│   │   │   ├── Charts.vue
+│   │   │   ├── Components
+│   │   │   │   ├── Buttons.vue
+│   │   │   │   ├── GridSystem.vue
+│   │   │   │   ├── Icons.vue
+│   │   │   │   ├── Notifications.vue
+│   │   │   │   ├── Panels.vue
+│   │   │   │   ├── SweetAlert.vue
+│   │   │   │   └── Typography.vue
+│   │   │   ├── Dashboard.vue
+│   │   │   ├── Forms
+│   │   │   │   ├── ExtendedForms.vue
+│   │   │   │   ├── RegularForms.vue
+│   │   │   │   ├── ValidationForms
+│   │   │   │   │   ├── LoginForm.vue
+│   │   │   │   │   ├── RangeValidationForm.vue
+│   │   │   │   │   ├── RegisterForm.vue
+│   │   │   │   │   └── TypeValidationForm.vue
+│   │   │   │   ├── ValidationForms.vue
+│   │   │   │   ├── Wizard
+│   │   │   │   │   ├── FirstStep.vue
+│   │   │   │   │   ├── SecondStep.vue
+│   │   │   │   │   └── ThirdStep.vue
+│   │   │   │   └── Wizard.vue
+│   │   │   ├── Layout
+│   │   │   │   ├── Content.vue
+│   │   │   │   ├── ContentFooter.vue
+│   │   │   │   ├── DashboardLayout.vue
+│   │   │   │   ├── Extra
+│   │   │   │   │   ├── MobileMenu.vue
+│   │   │   │   │   └── UserMenu.vue
+│   │   │   │   └── TopNavbar.vue
+│   │   │   ├── Maps
+│   │   │   │   ├── API_KEY.js
+│   │   │   │   ├── FullScreenMap.vue
+│   │   │   │   ├── GoogleMaps.vue
+│   │   │   │   ├── VectorMaps.vue
+│   │   │   │   ├── WorldMap.vue
+│   │   │   │   └── world_map.js
+│   │   │   ├── Pages
+│   │   │   │   ├── AuthLayout.vue
+│   │   │   │   ├── Lock.vue
+│   │   │   │   ├── Login.vue
+│   │   │   │   ├── Pricing.vue
+│   │   │   │   ├── Register.vue
+│   │   │   │   ├── RtlSupport.vue
+│   │   │   │   ├── TimeLinePage.vue
+│   │   │   │   ├── UserProfile
+│   │   │   │   │   ├── EditProfileForm.vue
+│   │   │   │   │   └── UserCard.vue
+│   │   │   │   └── UserProfile.vue
+│   │   │   ├── Tables
+│   │   │   │   ├── ExtendedTables.vue
+│   │   │   │   ├── PaginatedTables.vue
+│   │   │   │   ├── RegularTables.vue
+│   │   │   │   └── users.js
+│   │   │   └── Widgets.vue
+│   │   └── index.js
+│   └── routes
+│       └── routes.js
+├── vue.config.js
 
+```
 
 ## Browser Support
 
@@ -150,40 +215,41 @@ At present, we officially aim to support the last two versions of the following 
 
 
 ## Resources
-- Demo: <https://demos.creative-tim.com/vue-material-dashboard>
-- Download Page: <https://www.creative-tim.com/product/vue-material-dashboard>
-- Documentation: <https://demos.creative-tim.com/vue-material-dashboard/documentation>
-- License Agreement: <https://www.creative-tim.com/license>
-- Support: <https://www.creative-tim.com/contact-us>
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/vue-material-dashboard/issues)
+- [Live Preview](https://demos.creative-tim.com/vue-material-dashboard-pro)
+- Buy Page: https://www.creative-tim.com/product/vue-material-dashboard-pro
+- Documentation is [here](https://demos.creative-tim.com/vue-material-dashboard-pro/documentation)
+- License Agreement: https://www.creative-tim.com/license
+- Support: https://www.creative-tim.com/contact-us
+- Issues: [Github Issues Page](https://github.com/creativetimofficial/ct-vue-material-dashboard-pro/issues)
+- Vue Material Dashboard - [demo](https://www.creative-tim.com/product/vue-material-dashboard?ref=github-md-pro)
+- For Front End Development - [Material Kit Pro ](https://www.creative-tim.com/product/material-kit-pro?ref=github-md-pro)
+
 ## Reporting Issues
+We use GitHub Issues as the official bug tracker for the Material Dashboard Pro. Here are some advices for our users that want to report an issue:
 
-We use GitHub Issues as the official bug tracker for the Vue Material Dashboard. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Vue Material Dashboard. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
+1. Make sure that you are using the latest version of the Material Dashboard Pro. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
-
 
 ## Technical Support or Questions
 
 If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
 
-
-
 ## Licensing
 
-- Copyright 2018 Creative Tim (https://www.creative-tim.com/)
-
-- Licensed under MIT (https://github.com/creativetimofficial/vue-material-dashboard/blob/master/LICENSE.md)
-
-
+- Copyright 2018 Creative Tim (https://www.creative-tim.com)
+- Creative Tim [license](https://www.creative-tim.com/license)
 
 ## Useful Links
 
 - [More products](https://www.creative-tim.com/bootstrap-themes) from Creative Tim
+
+- [Vue products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes) from Creative Tim
+
 - [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
+
 - [Freebies](https://www.creative-tim.com/bootstrap-themes/free) from Creative Tim
+
 - [Affiliate Program](https://www.creative-tim.com/affiliates/new) (earn money)
 
 ##### Social Media
@@ -196,4 +262,4 @@ Dribbble: <https://dribbble.com/creativetim>
 
 Google+: <https://plus.google.com/+CreativetimPage>
 
-Instagram: <https://www.instagram.com/CreativeTimOfficial>
+Instagram: <https://instagram.com/creativetimofficial>

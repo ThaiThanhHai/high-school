@@ -5,6 +5,7 @@
   padding: $padding-base $padding-base $padding-base 75px;
   background-color: $gray-color;
 
+
   .md-icon-label .md-button-content{
     flex-direction: row;
   }
@@ -48,8 +49,14 @@
     }
 
     .md-ripple{
-      padding: 10px 15px;
+      padding: 10px 15px !important;
     }
+  }
+}
+
+@media all and (max-width: 540px) {
+  .md-tabs-navigation {
+    flex-direction: column;
   }
 }
 

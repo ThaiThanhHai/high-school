@@ -17,7 +17,7 @@
     >
       ×
     </button>
-    <i data-notify="icon" class="material-icons">{{ icon }}</i>
+    <i data-notify="icon" class="material-icons" v-if="icon">{{ icon }}</i>
     <span data-notify="message" v-html="message"></span>
   </div>
 </template>
@@ -41,7 +41,7 @@ export default {
     },
     timeout: {
       type: Number,
-      default: 2500,
+      default: 10500,
     },
     timestamp: {
       type: Date,
@@ -114,7 +114,7 @@ export default {
 .alert {
   z-index: 100;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   width: 41%;
 
   &.center {
@@ -124,6 +124,13 @@ export default {
     margin-right: auto;
     margin: 0 auto;
   }
+
+  &.left,
+  &.right,
+  &.center {
+    margin-top: 10px;
+  }
+
   &.left {
     left: 20px;
   }
