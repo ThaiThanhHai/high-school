@@ -1,7 +1,17 @@
+const { verifySignUp } = require("../middleware");
+
 module.exports = app => {
   const groups = require("../controllers/group.controller.js");
 
   var router = require("express").Router();
+
+  app.use(function(req, res, next) {
+    res.header(
+      "Access-Control-Allow-Headers",
+      "x-access-token, Origin, Content-Type, Accept"
+    );
+    next();
+  });
 
   // Create a new group
   router.post("/", groups.create);
@@ -18,5 +28,5 @@ module.exports = app => {
   // Delete a group with id
   router.delete("/:id", groups.delete);
 
-  app.use('/api/groups', router);
+  app.use('/api/groups', [authJwt.verifyToken], router);
 };

@@ -1,7 +1,17 @@
+const { verifySignUp } = require("../middleware");
+
 module.exports = app => {
   const tutorials = require("../controllers/tutorial.controller.js");
 
   var router = require("express").Router();
+
+  app.use(function(req, res, next) {
+    res.header(
+      "Access-Control-Allow-Headers",
+      "x-access-token, Origin, Content-Type, Accept"
+    );
+    next();
+  });
 
   // Create a new Tutorial
   router.post("/", tutorials.create);
