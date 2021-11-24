@@ -49,8 +49,7 @@ let componentsMenu = {
   component: DashboardLayout,
   redirect: "/components/buttons",
   name: "Components",
-  children: [
-    {
+  children: [{
       path: "buttons",
       name: "Buttons",
       components: { default: Buttons },
@@ -92,8 +91,7 @@ let formsMenu = {
   component: DashboardLayout,
   redirect: "/forms/regular",
   name: "Forms",
-  children: [
-    {
+  children: [{
       path: "regular",
       name: "Regular Forms",
       components: { default: RegularForms },
@@ -121,8 +119,7 @@ let tablesMenu = {
   component: DashboardLayout,
   redirect: "/table-list/regular",
   name: "Tables",
-  children: [
-    {
+  children: [{
       path: "regular",
       name: "Regular Tables",
       components: { default: RegularTables },
@@ -145,8 +142,7 @@ let mapsMenu = {
   component: DashboardLayout,
   name: "Maps",
   redirect: "/maps/google",
-  children: [
-    {
+  children: [{
       path: "google",
       name: "Google Maps",
       components: { default: GoogleMaps },
@@ -174,8 +170,7 @@ let pagesMenu = {
   component: DashboardLayout,
   name: "Pages",
   redirect: "/pages/user",
-  children: [
-    {
+  children: [{
       path: "user",
       name: "User Page",
       components: { default: User },
@@ -200,8 +195,7 @@ let authPages = {
   path: "/",
   component: AuthLayout,
   name: "Authentication",
-  children: [
-    {
+  children: [{
       path: "/login",
       name: "Login",
       component: Login,
@@ -224,8 +218,7 @@ let authPages = {
   ],
 };
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     redirect: "/dashboard",
     name: "Home",
@@ -239,8 +232,7 @@ const routes = [
   {
     path: "/",
     component: DashboardLayout,
-    children: [
-      {
+    children: [{
         path: "dashboard",
         name: "Dashboard",
         components: { default: Dashboard },
@@ -263,5 +255,19 @@ const routes = [
     ],
   },
 ];
+
+// router.beforeEach((to, from, next) => {
+//   const publicPages = ['/login', '/register', '/home'];
+//   const authRequired = !publicPages.includes(to.path);
+//   const loggedIn = localStorage.getItem('user');
+
+//   // trying to access a restricted page + not logged in
+//   // redirect to login page
+//   if (authRequired && !loggedIn) {
+//     next('/login');
+//   } else {
+//     next();
+//   }
+// });
 
 export default routes;

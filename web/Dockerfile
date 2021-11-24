@@ -11,7 +11,7 @@ WORKDIR /web
 COPY package*.json ./
 
 # install project dependencies
-RUN npm install
+RUN npm install --force
 
 RUN npm install -g sass-migrator
 

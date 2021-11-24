@@ -9,9 +9,10 @@
         md-xsmall-size-100
       "
     >
+    <form name="form" @submit.prevent="handleLogin">
       <login-card header-color="green">
         <h4 slot="title" class="title">Log in</h4>
-        <md-button
+        <!-- <md-button
           slot="buttons"
           href="#facebook"
           class="md-just-icon md-simple md-white"
@@ -31,43 +32,79 @@
           class="md-just-icon md-simple md-white"
         >
           <i class="fab fa-google-plus-g"></i>
-        </md-button>
-        <p slot="description" class="description">Or Be Classical</p>
+        </md-button> -->
         <md-field class="md-form-group" slot="inputs">
           <md-icon>face</md-icon>
-          <label>First Name...</label>
-          <md-input v-model="firstname"></md-input>
-        </md-field>
-        <md-field class="md-form-group" slot="inputs">
-          <md-icon>email</md-icon>
-          <label>Email...</label>
-          <md-input v-model="email" type="email"></md-input>
+          <label>Username...</label>
+          <md-input v-model="user.username"></md-input>
         </md-field>
         <md-field class="md-form-group" slot="inputs">
           <md-icon>lock_outline</md-icon>
           <label>Password...</label>
-          <md-input v-model="password"></md-input>
+          <md-input v-model="user.password"></md-input>
         </md-field>
+        <div class="alert alert-primary" v-if="message">
+          <button type="button" aria-hidden="true" class="close">×</button>
+          <span> {{ message }}</span>
+        </div>
         <md-button slot="footer" class="md-simple md-success md-lg">
-          Lets Go
+          Login
         </md-button>
       </login-card>
+    </form>
     </div>
   </div>
 </template>
 <script>
 import { LoginCard } from "@/components";
+import User from '@/models/user';
+
 export default {
   components: {
     LoginCard,
   },
   data() {
     return {
-      firstname: null,
-      email: null,
-      password: null,
+      user: new User('', ''),
+      loading: false,
+      message: ''
     };
   },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    }
+  },
+  created() {
+    if (this.loggedIn) {
+      // this.$router.push('/profile');
+      this.$router.push('/pages/user');
+    }
+  },
+  methods: {
+    handleLogin() {
+      this.loading = true;        
+      // this.$validator.validateAll().then(isValid => {
+      //   if (!isValid) {
+      //     this.loading = false;
+      //     return;
+      //   }
+        if (this.user.username && this.user.password) {
+          this.$store.dispatch('auth/login', this.user).then(
+            () => {
+              this.$router.push('/pages/user');
+            }).catch(error => {
+              this.loading = false;
+              
+              this.message =
+                error.message || (error.response && error.response.data) ||
+                error.toString()});
+
+              alert("Loi login" + this.message);
+        }
+      // });
+    }
+  }
 };
 </script>
 
